@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">ActivityLifeCycle_205801</string>
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
+    <string name="cancel">cancel</string>
+
+    <string name="cloud_text">Cloud Text Recognition</string>
+
+    <string name="select_from_album">Select image from album</string>
+    <string name="take_photo">Take photo</string>
+    <string name="video_frame">Video stream</string>
+    <string name="versions">Version：</string>
+    <string name="simplified_chinese">Simplified chinese</string>
+    <string name="english_choose">English</string>
+    <string name="japanese_choose">Japanese</string>
+    <string name="korean_choose">Korean</string>
+    <string name="latin_choose">Latin</string>
+    <string name="get_data_failed">Failed to get data.</string>
+    <string name="loading_data">Loading…</string>
+
+    <!--full name-->
+    <string name="icr_s">身份证识别</string>
+    <string name="text_detection_s">Text Recognition</string>
+    <string name="document_recognition_s">Document Recognition</string>
+    <string name="bcr_s">银行卡识别</string>
+    <string name="ucr_s">General Card Recognition</string>
+
+    <!--Abbreviation-->
+    <string name="document_recognition">Document</string>
+    <string name="translate">Translation</string>
+    <string name="bcr">BCR</string>
+    <string name="gcr">GCR</string>
+    <string name="icr">ICR</string>
+    <string name="text_detection">Text</string>
+
+    <string name="all">all</string>
+    <string name="coming_soon">coming soon</string>
+    <string name="back">返回</string>
+    <string name="translate_v">Translate</string>
+    <string name="language_recognition">Language Recognition</string>
+    <string name="elapsed_time">Elapsed Time: </string>
+    <string name="zero_character"> 0 character</string>
+    <string name="translate_text_hint">Machine Learning</string>
+
+    <!--ID card recognition-->
+    <string name="icr_upload_self_photo">请上传本人身份证照片</string>
+    <string name="icr_upload_face">上传人像面</string>
+    <string name="icr_upload_back">上传国徽面</string>
+    <string name="icr_hint_upload_valid_photo">上传有效身份证照片</string>
+    <string name="icr_hint_image_not_complete">某些东西可能挡住了照片中的重要信息。如有需要，可重拍照片。</string>
+    <string name="icr_hint_ensure_user_info_security">我们将依法保护您的个人信息安全</string>
+    <string name="recognition_results">识别结果:</string>
+    <string name="icr_mark"></string>
+    <string name="device_side">Device Side</string>
+    <string name="cloud_side">Cloud</string>
+    <!--General card recognition-->
+    <string name="gcr_upload_self_photo">Upload photos of your card</string>
+    <string name="gcr_upload">Upload card</string>
+    <string name="hk_pass">Hong Kong, Macao and Taiwan pass</string>
+    <string name="hk_id_card">Hong Kong Identity Card</string>
+    <string name="home_card">Mainland Travel Permit for Hong Kong、Macao and Taiwan residents</string>
+    <string name="click_to_switch"><u>Click to switch</u></string>
+    <string name="vedio_tip">Recognizing, please align the edges.</string>
+    <string name="capture_tip">Taking a picture, please align the edge.</string>
+
+    <string name="bcr_upload_self_photo">"请上传银行卡"</string>
+    <string name="bcr_upload">Upload card</string>
+
+</resources>

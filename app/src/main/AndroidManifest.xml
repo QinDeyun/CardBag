@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.activitylifecycle_205801">
+    <!-- 身份证扫描 -->
+    <meta-data
+        android:name="com.huawei.hms.ml.DEPENDENCY"
+        android:value="icr,bcr,ocr" /> <!-- If multiple models are required,set the parameter as follows: android:value="object,ocr,face,label,icr,bcr,imgseg" -->
+    <!-- 相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 使用网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 读权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ActivityLifeCycle_205801">
+        <activity
+            android:name=".StuCardRecognitionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IDCardRecognitionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BankCardRecognitionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AndroidExpandingViewLibrary"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_add.xml" value="0.19537037037037036" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_airplane.xml" value="0.265625" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_alert.xml" value="0.265625" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_baseline_menu_24.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_camera.xml" value="0.265625" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_car.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_directions.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_edit.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_favorite.xml" value="0.265625" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_place.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable-v24/ic_search.xml" value="0.265625" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable/button_circle_background.xml" value="0.26461538461538464" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable/dialog_background.xml" value="0.13854166666666667" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable/ic__id_card.xml" value="0.26145833333333335" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable/ic_back.xml" value="0.13854166666666667" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable/ic_bank_card.xml" value="0.265625" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable/ic_id_card.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13796296296296295" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable/ic_stu_card.xml" value="0.265625" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable/ic_stu_card_2.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable/rn_dashed_box.xml" value="0.1421875" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/drawable/text_selector.xml" value="0.13854166666666667" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/activity_android_expanding_view_library.xml" value="0.1" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/activity_bank_card_recognition.xml" value="0.264" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/activity_general_card_recognition.xml" value="0.10364583333333334" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/activity_idcard_recognition.xml" value="0.264" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/activity_remote_detection.xml" value="0.13072916666666667" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/activity_test.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/activity_text_recognition.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/dialog_add_picture.xml" value="0.264" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/dialog_language_setting.xml" value="0.13072916666666667" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/expanding_item.xml" value="0.3609375" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/expanding_layout.xml" value="0.3609375" />
+        <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/expanding_sub_item.xml" value="0.3609375" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="SuppressKotlinCodeStyleNotification">
+    <option name="disableForAll" value="true" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

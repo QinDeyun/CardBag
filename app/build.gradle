@@ -1,0 +1,74 @@
+plugins {
+    id 'com.android.application'
+}
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        configurations.all {
+            resolutionStrategy { force 'androidx.core:core-ktx:1.7.0' }
+        }
+        applicationId "com.example.activitylifecycle_205801"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    implementation 'com.github.imangazalievm:circlemenu:3.0.0'
+    implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
+    implementation 'com.diegodobelo.expandingview:expanding-view:0.9.4'
+
+    // 引入身份证识别基础SDK
+    implementation 'com.huawei.hms:ml-computer-card-icr-cn:3.7.0.303'
+
+    // 引入银行卡识别基础SDK
+    implementation 'com.huawei.hms:ml-computer-card-bcr:3.7.0.302'
+
+    // 引入通用卡识别基础SDK
+    implementation 'com.huawei.hms:ml-computer-vision-ocr:3.8.0.303'
+    // 引入拉丁语文字识别模型包
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-latin-model:3.8.0.303'
+    // 引入通用卡证识别插件包
+    implementation 'com.huawei.hms:ml-computer-card-gcr-plugin:3.7.0.303'
+
+    // 引入基础SDK
+    implementation 'com.huawei.hms:ml-computer-vision-ocr:3.8.0.303'
+    // 引入拉丁语文字识别模型包
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-latin-model:3.8.0.303'
+    // 引入日韩语文字识别模型包
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-jk-model:3.8.0.303'
+    // 引入中英文文字识别模型包
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-cn-model:3.8.0.303'
+
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "io.card:android-sdk:5.5.1"
+
+}

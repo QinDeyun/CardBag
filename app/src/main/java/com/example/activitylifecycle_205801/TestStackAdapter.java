@@ -1,8 +1,11 @@
 package com.example.activitylifecycle_205801;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.loopeer.cardstack.CardStackView;
@@ -61,12 +64,15 @@ public class TestStackAdapter extends StackAdapter<String> {
         View mLayout;
         View mContainerContent;
         TextView mTextTitle;
+        LinearLayout buttonDelete;
+
 
         public IdCard(View view) {
             super(view);
             mLayout = view.findViewById(R.id.frame_list_card_item);
             mContainerContent = view.findViewById(R.id.container_list_content);
             mTextTitle = (TextView) view.findViewById(R.id.text_list_card_title);
+            buttonDelete = view.findViewById(R.id.delete);
         }
 
         @Override
@@ -89,6 +95,12 @@ public class TestStackAdapter extends StackAdapter<String> {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
             mTextTitle.setText(data);
+            buttonDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showNormalDialog(v, data);
+                }
+            });
         }
 
     }
@@ -97,12 +109,15 @@ public class TestStackAdapter extends StackAdapter<String> {
         View mLayout;
         TextView mTextTitle;
         View mContainerContent;
+        LinearLayout buttonDelete;
+
 
         public StuCard(View view) {
             super(view);
             mLayout = view.findViewById(R.id.frame_list_card_item);
             mContainerContent = view.findViewById(R.id.container_list_content);
             mTextTitle = (TextView) view.findViewById(R.id.text_list_card_title);
+            buttonDelete = view.findViewById(R.id.delete);
         }
 
         @Override
@@ -125,7 +140,12 @@ public class TestStackAdapter extends StackAdapter<String> {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
             mTextTitle.setText(data);
-
+            buttonDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showNormalDialog(v, data);
+                }
+            });
         }
 
     }
@@ -134,12 +154,14 @@ public class TestStackAdapter extends StackAdapter<String> {
         View mLayout;
         View mContainerContent;
         TextView mTextTitle;
+        LinearLayout buttonDelete;
 
         public BankCard(View view) {
             super(view);
             mLayout = view.findViewById(R.id.frame_list_card_item);
             mContainerContent = view.findViewById(R.id.container_list_content);
             mTextTitle = (TextView) view.findViewById(R.id.text_list_card_title);
+            buttonDelete = view.findViewById(R.id.delete);
         }
 
         @Override
@@ -162,6 +184,12 @@ public class TestStackAdapter extends StackAdapter<String> {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
             mTextTitle.setText(data);
+            buttonDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showNormalDialog(v, data);
+                }
+            });
 
 //            itemView.findViewById(R.id.text_view).setOnClickListener(new View.OnClickListener() {
 //                @Override
@@ -171,6 +199,35 @@ public class TestStackAdapter extends StackAdapter<String> {
 //            });
         }
 
+    }
+
+    private static void showNormalDialog(View v, String data) {
+        /* @setIcon 设置对话框图标
+         * @setTitle 设置对话框标题
+         * @setMessage 设置对话框消息提示
+         * setXXX方法返回Dialog对象，因此可以链式设置属性
+         */
+        final AlertDialog.Builder normalDialog =
+                new AlertDialog.Builder(v.getContext());
+        normalDialog.setIcon(R.drawable.ic_delete);
+        normalDialog.setTitle("删除卡片");
+        normalDialog.setMessage("您确定要删除" + data + "吗？");
+        normalDialog.setPositiveButton("确定",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //...To-do
+                    }
+                });
+        normalDialog.setNegativeButton("关闭",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //...To-do
+                    }
+                });
+        // 显示
+        normalDialog.show();
     }
 
 }

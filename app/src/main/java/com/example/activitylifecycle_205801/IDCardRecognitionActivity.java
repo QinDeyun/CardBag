@@ -360,7 +360,7 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
 
         }
         else {
-            Toast.makeText(this,"为空",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"请扫描身份证",Toast.LENGTH_LONG).show();
         }
 
 

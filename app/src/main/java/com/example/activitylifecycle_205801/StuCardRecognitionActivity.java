@@ -1,7 +1,10 @@
 package com.example.activitylifecycle_205801;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -9,9 +12,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.activitylifecycle_205801.entity.Card_bank;
+import com.example.activitylifecycle_205801.entity.Card_student;
+import com.example.activitylifecycle_205801.util.Conduct_bitmap;
+import com.example.activitylifecycle_205801.util.MyDatabaseHelper;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
@@ -24,6 +32,7 @@ import com.huawei.hms.mlsdk.text.MLText;
 import com.huawei.hms.mlsdk.text.MLTextAnalyzer;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import io.card.payment.CardIOActivity;
 import io.card.payment.CardType;
@@ -38,6 +47,9 @@ public class StuCardRecognitionActivity extends AppCompatActivity implements Vie
     private String lastFrontResult = "";
     private String lastBackResult = "";
     private Bitmap currentImage;
+
+
+    private HashMap<String,String> map_result;
 
     private static final int REQUEST_SCAN = 100;
 
@@ -59,6 +71,9 @@ public class StuCardRecognitionActivity extends AppCompatActivity implements Vie
         frontAddView.setOnClickListener(this);
         frontDeleteImg.setOnClickListener(this);
         findViewById(R.id.test_back).setOnClickListener(this);
+
+        this.map_result=new HashMap<>();
+        findViewById(R.id.save).setOnClickListener(this);
     }
 
     @Override
@@ -69,11 +84,15 @@ public class StuCardRecognitionActivity extends AppCompatActivity implements Vie
                 startCaptureActivity();
                 break;
             case R.id.test_avatar_delete:
+                this.map_result.clear();
                 showFrontDeleteImage();
                 lastFrontResult = "";
                 break;
             case R.id.test_back:
                 finish();
+                break;
+            case R.id.save:
+                save();
                 break;
             default:
                 break;
@@ -184,6 +203,8 @@ public class StuCardRecognitionActivity extends AppCompatActivity implements Vie
                 public void onSuccess(MLText text) {
                     System.out.println(text.getStringValue());
                     showResult.setText(ExtractInfo.getInf(text.getStringValue()));
+
+                    map_result=ExtractInfo.getmap(text.getStringValue());
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -303,4 +324,33 @@ public class StuCardRecognitionActivity extends AppCompatActivity implements Vie
         frontAddView.setVisibility(View.VISIBLE);
         frontDeleteImg.setVisibility(View.GONE);
     }
+
+    private void save(){
+        if(!map_result.isEmpty()){
+
+            try {
+                Drawable drawable_front = this.frontImg.getDrawable();
+                Bitmap front = ((BitmapDrawable) drawable_front).getBitmap();
+                String fronturl = Conduct_bitmap.saveBitmapToInternalStorage(this, "Student_front" + map_result.get("number"), front);
+
+                Card_student card_student = new Card_student(map_result.get("sname"), map_result.get("snum"), map_result.get("sclass"), map_result.get("scollege"), fronturl);
+                System.out.println(card_student);
+
+
+
+                MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(this);
+                SQLiteDatabase writableDatabase = myDatabaseHelper.getWritableDatabase();
+                Card_student.insertToDatabase(writableDatabase, "card_student", card_student);
+            }catch (Exception exception){
+                System.out.println(exception);
+            }
+            finally {
+            }
+
+        }
+        else {
+            Toast.makeText(this, "请扫描校园卡", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

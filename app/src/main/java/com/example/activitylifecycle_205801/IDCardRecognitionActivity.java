@@ -3,7 +3,10 @@ package com.example.activitylifecycle_205801;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,13 +16,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.activitylifecycle_205801.entity.Card_ID;
+
+import com.example.activitylifecycle_205801.util.Conduct_bitmap;
+import com.example.activitylifecycle_205801.util.MyDatabaseHelper;
 import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCapture;
 import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCaptureConfig;
 import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCaptureFactory;
 import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCaptureResult;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import java.util.HashMap;
 
 public class IDCardRecognitionActivity extends AppCompatActivity implements View.OnClickListener,
         SwitchButton.OnSwitchButtonStateChangeListener {
@@ -44,6 +53,8 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
     private String lastFrontResult = "";
     private String lastBackResult = "";
     private boolean isRemote = false;
+
+    HashMap<Object, Object> Map_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +81,10 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
         this.frontDeleteImg.setOnClickListener(this);
         this.backDeleteImg.setOnClickListener(this);
         this.findViewById(R.id.back).setOnClickListener(this);
+
+        this.Map_result=new HashMap<>();
+
+        this.findViewById(R.id.save).setOnClickListener(this);
     }
 
     @Override
@@ -97,11 +112,13 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
                 }
                 break;
             case R.id.avatar_delete:
+                this.Map_result.remove("frontmap");
                 Log.i(IDCardRecognitionActivity.TAG, "onClick avatar_delete");
                 this.showFrontDeleteImage();
                 this.lastFrontResult = "";
                 break;
             case R.id.emblem_delete:
+                this.Map_result.remove("backgroundmap");
                 Log.i(IDCardRecognitionActivity.TAG, "onClick emblem_delete");
                 this.showBackDeleteImage();
                 this.lastBackResult = "";
@@ -109,9 +126,15 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
             case R.id.back:
                 this.finish();
                 break;
+            case R.id.save:
+                this.save();
+                System.out.println(this.Map_result);
+                break;
+
             default:
                 break;
         }
+
     }
 
     @Override
@@ -151,43 +174,60 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
         icrCapture.capture(callback, this);
     }
 
+
+
+    //识别结果
     private String formatIdCardResult(MLCnIcrCaptureResult result, boolean isFront) {
         Log.i(IDCardRecognitionActivity.TAG, "formatIdCardResult");
         StringBuilder resultBuilder = new StringBuilder();
+
         if (isFront) {
-            resultBuilder.append("姓名：");
+            HashMap<String,String> front=new HashMap<>();
+            resultBuilder.append("Name：");
             resultBuilder.append(result.name);
             resultBuilder.append("\r\n");
+            front.put("name",result.name);
 
-            resultBuilder.append("性别：");
+            resultBuilder.append("Sex：");
             resultBuilder.append(result.sex);
             resultBuilder.append("\r\n");
+            front.put("sex",result.sex);
 
-            resultBuilder.append("民族：");
+            resultBuilder.append("Nation：");
             resultBuilder.append(result.nation);
             resultBuilder.append("\r\n");
+            front.put("nation",result.nation);
 
-            resultBuilder.append("出生日期：");
+            resultBuilder.append("Birthday：");
             resultBuilder.append(result.birthday);
             resultBuilder.append("\r\n");
+            front.put("birthday",result.birthday);
 
-            resultBuilder.append("住址：");
+            resultBuilder.append("Address：");
             resultBuilder.append(result.address);
             resultBuilder.append("\r\n");
+            front.put("address",result.address);
 
-            resultBuilder.append("身份证号: ");
+            resultBuilder.append("IDNum: ");
             resultBuilder.append(result.idNum);
             resultBuilder.append("\r\n");
+            front.put("idNum",result.idNum);
+
+            this.Map_result.put("frontmap",front);
             Log.i(IDCardRecognitionActivity.TAG, "front result: " + resultBuilder.toString());
         } else {
-
-            resultBuilder.append("签发机关: ");
+            HashMap<String,String> background=new HashMap<>();
+            resultBuilder.append("Authority: ");
             resultBuilder.append(result.authority);
             resultBuilder.append("\r\n");
+            background.put("authority",result.authority);
 
-            resultBuilder.append("有效期限: ");
+            resultBuilder.append("ValidDate: ");
             resultBuilder.append(result.validDate);
             resultBuilder.append("\r\n");
+            background.put("validDate",result.validDate);
+
+            this.Map_result.put("backgroundmap",background);
             Log.i(IDCardRecognitionActivity.TAG, "back result: " + resultBuilder.toString());
         }
         return resultBuilder.toString();
@@ -282,4 +322,48 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
         this.backSimpleImg.setVisibility(View.VISIBLE);
         this.backDeleteImg.setVisibility(View.GONE);
     }
+
+    //保存图片，信息添加数据库
+    void save(){
+        if (!Map_result.isEmpty()) {
+            try {
+                Drawable drawable_front = this.frontImg.getDrawable();
+                Bitmap front = ((BitmapDrawable) drawable_front).getBitmap();
+
+                Drawable drawable_background = this.backImg.getDrawable();
+                Bitmap background = ((BitmapDrawable) drawable_front).getBitmap();
+
+
+                HashMap<String,String> frontMap = (HashMap<String, String>) Map_result.get("frontmap");
+                String name = frontMap.get("name");
+                String sex = frontMap.get("sex");
+                String nation = frontMap.get("nation");
+                String birthday = frontMap.get("birthday");
+                String address = frontMap.get("address");
+                String idNum = frontMap.get("idNum");
+
+                HashMap<String,String> backgroundMap = (HashMap<String, String>) Map_result.get("backgroundmap");
+                String authority = backgroundMap.get("authority");
+                String validDate = backgroundMap.get("validDate");
+
+                String firsturl = Conduct_bitmap.saveBitmapToInternalStorage(this,"ID_front"+frontMap.get("idNum"),front);
+                String secondurl = Conduct_bitmap.saveBitmapToInternalStorage(this,"ID_background"+frontMap.get("idNum"),background);
+                Card_ID cardId = new Card_ID(name, sex, nation, birthday, address, idNum, authority, validDate, firsturl, secondurl);
+                System.out.println(cardId);
+
+                MyDatabaseHelper myDatabaseHelper=new MyDatabaseHelper(this);
+                SQLiteDatabase writableDatabase = myDatabaseHelper.getWritableDatabase();
+                Card_ID.insertToDatabase(writableDatabase,"card_id",cardId);
+            }catch (Exception exception){
+                System.out.println(exception);
+            }
+
+        }
+        else {
+            Toast.makeText(this,"为空",Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.activitylifecycle_205801;
 
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -47,6 +48,49 @@ public class ExtractInfo {
             String shuChu = "学院：" + matcher.group(1);
             System.out.println(shuChu);
             result += shuChu;
+        }
+        return result;
+    }
+
+    public static HashMap<String,String> getmap(String args) {
+
+        HashMap<String,String> result=new HashMap<>();
+        String str = args;
+        String namePattern = "姓名：(\\S+)";
+        String idPattern = "学号：(\\S+)";
+        String classPattern = "班级：(\\S+)";
+        String collegePattern = "学院：(\\S+)";
+        Pattern pattern;
+        Matcher matcher;
+
+
+        pattern = Pattern.compile(namePattern);
+        matcher = pattern.matcher(str);
+        if (matcher.find()) {
+
+            result.put("sname",matcher.group(1));
+        }
+
+        pattern = Pattern.compile(idPattern);
+        matcher = pattern.matcher(str);
+        if (matcher.find()) {
+
+            result.put("snum",matcher.group(1));
+        }
+
+        pattern = Pattern.compile(classPattern);
+        matcher = pattern.matcher(str);
+        if (matcher.find()) {
+
+
+            result.put("sclass",matcher.group(1));
+        }
+
+        pattern = Pattern.compile(collegePattern);
+        matcher = pattern.matcher(str);
+        if (matcher.find()) {
+
+            result.put("scollege",matcher.group(1));
         }
         return result;
     }

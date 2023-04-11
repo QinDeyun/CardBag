@@ -153,13 +153,26 @@
                     android:layout_marginTop="@dimen/card_result_margin_top"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/card_result_text_size" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/save"
-                    android:text="save"/>
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button"
+        android:gravity="bottom"
+        android:paddingLeft="25dp"
+        android:paddingTop="8dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="8dp"
+        android:text="保存卡片"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 </RelativeLayout>

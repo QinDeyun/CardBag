@@ -6,10 +6,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AndroidExpandingViewLibrary">
 
-    <com.diegodobelo.expandingview.ExpandingList
-        android:id="@+id/expanding_list_main"
+    <com.loopeer.cardstack.CardStackView
+        android:id="@+id/stackview_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clipToPadding="false"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="12dp"/>
+
+    <LinearLayout
+        android:id="@+id/button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        android:gravity="center">
+    </LinearLayout>
 
     <com.imangazaliev.circlemenu.CircleMenu
         android:id="@+id/fab"

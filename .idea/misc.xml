@@ -39,6 +39,19 @@
         <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/expanding_item.xml" value="0.3609375" />
         <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/expanding_layout.xml" value="0.3609375" />
         <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/expanding_sub_item.xml" value="0.3609375" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/ic_card_delete.xml" value="0.1609375" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/ic_card_detail_information.xml" value="0.1609375" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/ic_card_photo.xml" value="0.1609375" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/round.xml" value="0.1609375" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/shape_rectangle_with_radius.xml" value="0.1" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/activity_android_expanding_view_library.xml" value="0.176" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/activity_main.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/expanding_item.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/expanding_layout.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/linear_list_card_item.xml" value="0.2" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/list_card_item.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/list_card_item_larger_header.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/list_card_item_with_no_header.xml" value="0.14479166666666668" />
       </map>
     </option>
   </component>

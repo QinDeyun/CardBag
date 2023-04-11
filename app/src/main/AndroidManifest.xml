@@ -24,6 +24,8 @@
         <activity
             android:name=".IDCardRecognitionActivity"
             android:exported="false" />
+        <activity android:name=".Activity_IDCardDetail"
+            android:exported="false"/>
         <activity
             android:name=".BankCardRecognitionActivity"
             android:exported="false" />

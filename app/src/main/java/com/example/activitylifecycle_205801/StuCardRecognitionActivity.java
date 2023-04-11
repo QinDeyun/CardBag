@@ -93,6 +93,7 @@ public class StuCardRecognitionActivity extends AppCompatActivity implements Vie
                 break;
             case R.id.save:
                 save();
+
                 break;
             default:
                 break;
@@ -341,6 +342,7 @@ public class StuCardRecognitionActivity extends AppCompatActivity implements Vie
                 MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(this);
                 SQLiteDatabase writableDatabase = myDatabaseHelper.getWritableDatabase();
                 Card_student.insertToDatabase(writableDatabase, "card_student", card_student);
+                this.finish();
             }catch (Exception exception){
                 System.out.println(exception);
             }

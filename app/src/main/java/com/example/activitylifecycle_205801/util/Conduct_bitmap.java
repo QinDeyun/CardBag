@@ -7,8 +7,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
+import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -45,11 +48,11 @@ public class Conduct_bitmap {
 
         // 创建一个Paint对象，并设置水印的属性，如颜色、大小等
         Paint paint = new Paint();
-        paint.setColor(Color.RED);
+        paint.setColor(Color.WHITE);
         paint.setTextSize(50);
 
         // 计算水印数量以及水印之间的间隔
-        int watermarkCount = 10;
+        int watermarkCount = 3;
         float watermarkInterval = diagonalLength / (watermarkCount + 1);
 
             // 在Canvas对象上绘制水印
@@ -97,29 +100,30 @@ public class Conduct_bitmap {
     }
 
     //从内部存储读取存贮的图片，返回Bitmap
-    public static Bitmap loadBitmapFromInternalStorage(Context context, String fileName) {
+    public static Bitmap loadBitmapFromInternalStorage(Context context, String filePath) {
+        FileInputStream fis = null;
         Bitmap bitmap = null;
         try {
-            // 获取文件路径
-            File directory = context.getDir("pictures", Context.MODE_PRIVATE);
-            File file = new File(directory, fileName);
-            // 从文件中读取 Bitmap 对象
-            bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-        } catch (Exception e) {
+            fis = new FileInputStream(filePath);
+            bitmap = BitmapFactory.decodeStream(fis);
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return bitmap;
-    }
-    //根据路径删除图片
-    public static boolean deleteFileFromInternalStorage(String filePath) {
-        File file = new File(filePath);
-        return file.delete();
     }
 
 
 
     //将图片生成PdfDocument
-    public static PdfDocument creat_pdf(Bitmap image){
+    public static PdfDocument creat_PdfDocument(Bitmap image){
         // 计算A4纸的尺寸和图片的尺寸
         float pageWidth = 8.27f * 72; // A4纸的宽度（8.27英寸），转换为像素（1英寸=72像素）
         float pageHeight = 11.69f * 72; // A4纸的高度（11.69英寸），转换为像素
@@ -146,10 +150,38 @@ public class Conduct_bitmap {
         // 结束页面，并将页面添加到PdfDocument对象中
         pdfDocument.finishPage(page);
 
-
-        pdfDocument.close();
-
         return pdfDocument;
+    }
+    public static File savePdfToInternalStorage(Context context, PdfDocument pdfDocument, String fileName) throws IOException {
+        // 获取应用程序私有目录的路径
+        File directory = context.getFilesDir();
+
+        // 创建目标文件
+        File file = new File(directory, fileName);
+
+        // 创建文件输出流
+        FileOutputStream outputStream = new FileOutputStream(file);
+
+        // 将PdfDocument对象写入输出流中
+        pdfDocument.writeTo(outputStream);
+
+        // 关闭输出流
+        outputStream.close();
+
+        // 授予文件读写权限
+        file.setReadable(true, false);
+        file.setWritable(true, false);
+
+        // 返回目标文件
+        return file;
+    }
+
+    public static void outPDf(Context context,Bitmap bitmap) throws IOException {
+        PdfDocument pdfDocument= creat_PdfDocument(bitmap);
+        File file=savePdfToInternalStorage(context,pdfDocument,System.currentTimeMillis()+".pdf");
+        System.out.println(file.getAbsolutePath());
+        Toast.makeText(context, "PDF导出成功\n"+file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+        pdfDocument.close();
     }
 
 

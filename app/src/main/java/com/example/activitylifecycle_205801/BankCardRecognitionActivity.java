@@ -76,6 +76,7 @@ public class BankCardRecognitionActivity extends AppCompatActivity implements Vi
                 break;
             case R.id.save:
                 save();
+
                 break;
             default:
                 break;
@@ -192,6 +193,7 @@ public class BankCardRecognitionActivity extends AppCompatActivity implements Vi
                 MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(this);
                 SQLiteDatabase writableDatabase = myDatabaseHelper.getWritableDatabase();
                 Card_bank.insertToDatabase(writableDatabase, "card_bank", card_bank);
+                this.finish();
             }catch (Exception exception){
                 System.out.println(exception);
             }

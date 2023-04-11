@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity_IDCardDetail">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:gravity="center">
+
+        <include layout="@layout/card_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/card_id"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:id="@+id/button_edit"
+                android:src="@drawable/ic_edit" >
+            </ImageButton>
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/photo"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:src="@drawable/photo" >
+            </ImageButton>
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_delete" >
+            </ImageButton>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</LinearLayout>

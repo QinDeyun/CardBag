@@ -129,6 +129,7 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
             case R.id.save:
                 this.save();
                 System.out.println(this.Map_result);
+
                 break;
 
             default:
@@ -354,6 +355,7 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
                 MyDatabaseHelper myDatabaseHelper=new MyDatabaseHelper(this);
                 SQLiteDatabase writableDatabase = myDatabaseHelper.getWritableDatabase();
                 Card_ID.insertToDatabase(writableDatabase,"card_id",cardId);
+                this.finish();
             }catch (Exception exception){
                 System.out.println(exception);
             }

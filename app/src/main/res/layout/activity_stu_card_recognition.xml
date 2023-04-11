@@ -139,15 +139,21 @@
                 android:layout_marginTop="@dimen/card_result_margin_top"
                 android:layout_marginEnd="@dimen/card_result_margin_start"
                 android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/test_number"
+                <TextView
+                    android:id="@+id/take_id_text"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:scaleType="fitXY" />
-
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="@dimen/icr_result_margin"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="HwChinese-medium"
+                    android:text="@string/recognition_results"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
                 <TextView
                     android:id="@+id/test_show_result"
+                    android:layout_marginStart="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/card_result_margin_top"

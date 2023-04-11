@@ -331,7 +331,7 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
                 Bitmap front = ((BitmapDrawable) drawable_front).getBitmap();
 
                 Drawable drawable_background = this.backImg.getDrawable();
-                Bitmap background = ((BitmapDrawable) drawable_front).getBitmap();
+                Bitmap background = ((BitmapDrawable) drawable_background).getBitmap();
 
 
                 HashMap<String,String> frontMap = (HashMap<String, String>) Map_result.get("frontmap");

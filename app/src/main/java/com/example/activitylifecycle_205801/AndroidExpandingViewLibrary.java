@@ -69,23 +69,23 @@ public class AndroidExpandingViewLibrary extends AppCompatActivity implements Ca
 //            System.out.println(e);
 //        }
 
-
-        mStackView = (CardStackView) findViewById(R.id.stackview_main);
-        mActionButtonContainer = (LinearLayout) findViewById(R.id.button_container);
-        mStackView.setItemExpendListener(this);
-        mTestStackAdapter = new TestStackAdapter(this);
-        mStackView.setAdapter(mTestStackAdapter);
-
-
-        new Handler().postDelayed(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        mTestStackAdapter.updateData(Arrays.asList(TEST_DATAS));
-                    }
-                }
-                , 200
-        );
+//
+//        mStackView = (CardStackView) findViewById(R.id.stackview_main);
+//        mActionButtonContainer = (LinearLayout) findViewById(R.id.button_container);
+//        mStackView.setItemExpendListener(this);
+//        mTestStackAdapter = new TestStackAdapter(this);
+//        mStackView.setAdapter(mTestStackAdapter);
+//
+//
+//        new Handler().postDelayed(
+//                new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        mTestStackAdapter.updateData(Arrays.asList(TEST_DATAS));
+//                    }
+//                }
+//                , 200
+//        );
 
 //        ExpandingList expandingList = (ExpandingList) findViewById(R.id.expanding_list_main);
 //        ExpandingItem item = expandingList.createNewItem(R.layout.expanding_layout);
@@ -208,6 +208,24 @@ public class AndroidExpandingViewLibrary extends AppCompatActivity implements Ca
         }
         System.out.println(list);
         AndroidExpandingViewLibrary.TEST_DATAS=  list.toArray(new String[n]);
+
+
+        mStackView = (CardStackView) findViewById(R.id.stackview_main);
+        mActionButtonContainer = (LinearLayout) findViewById(R.id.button_container);
+        mStackView.setItemExpendListener(this);
+        mTestStackAdapter = new TestStackAdapter(this,AndroidExpandingViewLibrary.this);
+        mStackView.setAdapter(mTestStackAdapter);
+
+
+        new Handler().postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        mTestStackAdapter.updateData(Arrays.asList(TEST_DATAS));
+                    }
+                }
+                , 200
+        );
 
     }
 

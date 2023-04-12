@@ -1,6 +1,9 @@
 package com.example.activitylifecycle_205801;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,6 +24,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.activitylifecycle_205801.entity.Card_ID;
 
+import com.example.activitylifecycle_205801.entity.Card_bank;
+import com.example.activitylifecycle_205801.entity.Card_student;
 import com.example.activitylifecycle_205801.util.Conduct_bitmap;
 import com.example.activitylifecycle_205801.util.MyDatabaseHelper;
 import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCapture;
@@ -354,8 +359,21 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
 
                 MyDatabaseHelper myDatabaseHelper=new MyDatabaseHelper(this);
                 SQLiteDatabase writableDatabase = myDatabaseHelper.getWritableDatabase();
-                Card_ID.insertToDatabase(writableDatabase,"card_id",cardId);
-                this.finish();
+                Card_ID exist=null;
+                try {
+                    exist= Card_ID.queryCardByIdnum(writableDatabase, "card_id", cardId.getIdnum());
+                }catch (Exception e){
+                    System.out.println(e);
+                }
+                 if (exist==null){
+                     Card_ID.insertToDatabase(writableDatabase,"card_id",cardId);
+                     this.finish();
+                 }
+                 else {
+                     showNormalDialog(cardId,writableDatabase);
+                 }
+
+
             }catch (Exception exception){
                 System.out.println(exception);
             }
@@ -366,6 +384,40 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
         }
 
 
+    }
+
+     void showNormalDialog(Card_ID card_id,SQLiteDatabase sqLiteDatabase) {
+        /* @setIcon 设置对话框图标
+         * @setTitle 设置对话框标题
+         * @setMessage 设置对话框消息提示
+         * setXXX方法返回Dialog对象，因此可以链式设置属性
+         */
+        final AlertDialog.Builder normalDialog =
+                new AlertDialog.Builder(IDCardRecognitionActivity.this);
+        normalDialog.setIcon(R.drawable.ic_delete);
+        normalDialog.setTitle("该身份证已经存在");
+        normalDialog.setMessage("是否要更新？");
+        normalDialog.setPositiveButton("更新",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                       Card_ID.updateToDatabase(sqLiteDatabase,"card_id",card_id);
+                       IDCardRecognitionActivity.this.finish();
+                    }
+                });
+        normalDialog.setNegativeButton("取消",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //...To-do
+
+
+
+                    }
+                });
+        // 显示
+        normalDialog.show();
     }
 
 }

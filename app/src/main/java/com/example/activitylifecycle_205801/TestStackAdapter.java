@@ -2,6 +2,7 @@ package com.example.activitylifecycle_205801;
 
 import static androidx.core.content.ContextCompat.startActivity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.activitylifecycle_205801.entity.Card_ID;
 import com.example.activitylifecycle_205801.entity.Card_bank;
 import com.example.activitylifecycle_205801.entity.Card_student;
@@ -21,7 +24,8 @@ import com.loopeer.cardstack.StackAdapter;
 
 public class TestStackAdapter extends StackAdapter<String> {
       public static Context context;
-    public TestStackAdapter(Context context) {
+    public static AppCompatActivity appCompatActivity;
+    public TestStackAdapter(Context context,AppCompatActivity appCompatActivity) {
         super(context);
         this.context=context;
     }
@@ -105,7 +109,9 @@ public class TestStackAdapter extends StackAdapter<String> {
         public void onBind(String data, int position) {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
-            mTextTitle.setText(data+""+position);
+//            mTextTitle.setText(data+"\n"+AndroidExpandingViewLibrary.card_ids[position].getIdnum().substring(0,14)+"****");
+            int n=position;
+            mTextTitle.setText(data+""+(n+1));
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {showNormalDialog(v, data,position);}
@@ -167,7 +173,8 @@ public class TestStackAdapter extends StackAdapter<String> {
         public void onBind(String data, int position) {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
-            mTextTitle.setText(data+""+(position-AndroidExpandingViewLibrary.card_ids.length-AndroidExpandingViewLibrary.card_banks.length));
+            int n=position-AndroidExpandingViewLibrary.card_ids.length-AndroidExpandingViewLibrary.card_banks.length;
+            mTextTitle.setText(data+""+ ""+(n+1));
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -229,7 +236,8 @@ public class TestStackAdapter extends StackAdapter<String> {
         public void onBind(String data, int position) {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
-            mTextTitle.setText(data+""+(position-AndroidExpandingViewLibrary.card_ids.length));
+            int n=position-AndroidExpandingViewLibrary.card_ids.length;
+            mTextTitle.setText(data+""+(n+1));
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -289,6 +297,10 @@ public class TestStackAdapter extends StackAdapter<String> {
                             } else if (data.equals("校园卡")) {
                                 Card_student.delCard(new MyDatabaseHelper(TestStackAdapter.context).getWritableDatabase(), "card_student", AndroidExpandingViewLibrary.card_students[n]);
                             }
+
+                            Toast.makeText(TestStackAdapter.context, "删除成功", Toast.LENGTH_SHORT).show();
+                            Intent intent3 = new Intent(TestStackAdapter.context, AndroidExpandingViewLibrary.class);
+                            TestStackAdapter.context.startActivity(intent3);
                         }catch (Exception e){
                             System.out.println(e);
                         }
@@ -299,6 +311,7 @@ public class TestStackAdapter extends StackAdapter<String> {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //...To-do
+
 
 
                     }

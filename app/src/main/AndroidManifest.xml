@@ -19,13 +19,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ActivityLifeCycle_205801">
         <activity
+            android:name=".Activity_bankCardDetail"
+            android:exported="false" />
+        <activity
             android:name=".StuCardRecognitionActivity"
             android:exported="false" />
         <activity
             android:name=".IDCardRecognitionActivity"
             android:exported="false" />
-        <activity android:name=".Activity_IDCardDetail"
-            android:exported="false"/>
+        <activity
+            android:name=".Activity_IDCardDetail"
+            android:exported="false" />
         <activity
             android:name=".BankCardRecognitionActivity"
             android:exported="false" />

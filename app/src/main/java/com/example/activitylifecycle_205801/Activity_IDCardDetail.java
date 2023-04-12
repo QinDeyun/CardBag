@@ -40,7 +40,13 @@ public class Activity_IDCardDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_idcard_detail);
-        this.init();
+
+        try {
+            this.init();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
 
 
 

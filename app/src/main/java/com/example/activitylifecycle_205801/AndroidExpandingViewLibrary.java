@@ -53,17 +53,18 @@ public class AndroidExpandingViewLibrary extends AppCompatActivity implements Ca
         setContentView(R.layout.activity_android_expanding_view_library);
 
 
-//        try {
-//            // 创建Intent对象，指定要启动的Activity类
-//            Intent intent2 = new Intent(AndroidExpandingViewLibrary.this, Activity_IDCardDetail.class);
-//            // 添加数据到Intent对象中，key为"message"，value为"Hello, World!"
-//            intent2.putExtra("idnum", "131127200203133412");
-//            // 启动Activity B
-//            startActivity(intent2);
-//        }catch (Exception e)
-//        {
-//            System.out.println(e);
-//        }
+        try {
+            // 创建Intent对象，指定要启动的Activity类
+            Intent intent2 = new Intent(AndroidExpandingViewLibrary.this, Activity_IDCardDetail.class);
+            // 添加数据到Intent对象中，key为"message"，value为"Hello, World!"
+//            intent2.putExtra("number", "6228480028915057377");
+            intent2.putExtra("idnum", "131127200203133412");
+            // 启动Activity B
+            startActivity(intent2);
+        }catch (Exception e)
+        {
+            System.out.println(e);
+        }
 
 
         mStackView = (CardStackView) findViewById(R.id.stackview_main);

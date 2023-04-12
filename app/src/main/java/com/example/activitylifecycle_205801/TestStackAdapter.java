@@ -1,20 +1,25 @@
 package com.example.activitylifecycle_205801;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopeer.cardstack.CardStackView;
 import com.loopeer.cardstack.StackAdapter;
 
 public class TestStackAdapter extends StackAdapter<String> {
-
+      public static Context context;
     public TestStackAdapter(Context context) {
         super(context);
+        this.context=context;
     }
 
     @Override
@@ -65,6 +70,7 @@ public class TestStackAdapter extends StackAdapter<String> {
         View mContainerContent;
         TextView mTextTitle;
         LinearLayout buttonDelete;
+        LinearLayout buttonDetail;
 
 
         public IdCard(View view) {
@@ -73,6 +79,7 @@ public class TestStackAdapter extends StackAdapter<String> {
             mContainerContent = view.findViewById(R.id.container_list_content);
             mTextTitle = (TextView) view.findViewById(R.id.text_list_card_title);
             buttonDelete = view.findViewById(R.id.delete);
+            buttonDetail=view.findViewById(R.id.detail);
         }
 
         @Override
@@ -97,8 +104,23 @@ public class TestStackAdapter extends StackAdapter<String> {
             mTextTitle.setText(data);
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    showNormalDialog(v, data);
+                public void onClick(View v) {showNormalDialog(v, data);}
+            });
+            buttonDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    System.out.println("详细信息");
+                    System.out.println(position);
+                    try {
+                        Intent intent2 = new Intent(TestStackAdapter.context, Activity_IDCardDetail.class);
+                        intent2.putExtra("idnum", AndroidExpandingViewLibrary.card_ids[position].getIdnum());
+                        TestStackAdapter.context.startActivity(intent2);
+    //            intent2.putExtra("snum", "202542");
+    //            intent2.putExtra("idnum", "131127200203133412");TestStackAdapter.context.startActivity(intent2);
+                    }catch (Exception e)
+            {
+                System.out.println(e);
+            }
                 }
             });
         }
@@ -110,6 +132,7 @@ public class TestStackAdapter extends StackAdapter<String> {
         TextView mTextTitle;
         View mContainerContent;
         LinearLayout buttonDelete;
+        LinearLayout buttonDetail;
 
 
         public StuCard(View view) {
@@ -118,6 +141,7 @@ public class TestStackAdapter extends StackAdapter<String> {
             mContainerContent = view.findViewById(R.id.container_list_content);
             mTextTitle = (TextView) view.findViewById(R.id.text_list_card_title);
             buttonDelete = view.findViewById(R.id.delete);
+            buttonDetail=view.findViewById(R.id.detail);
         }
 
         @Override
@@ -146,6 +170,22 @@ public class TestStackAdapter extends StackAdapter<String> {
                     showNormalDialog(v, data);
                 }
             });
+            buttonDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    System.out.println("校园卡position:"+position);
+                    try {
+                        Intent intent2 = new Intent(TestStackAdapter.context, Activity_studentCardDetail.class);
+                        intent2.putExtra("snum", AndroidExpandingViewLibrary.card_students[position-AndroidExpandingViewLibrary.card_ids.length-AndroidExpandingViewLibrary.card_banks.length].getSnum());
+                        TestStackAdapter.context.startActivity(intent2);
+                        //            intent2.putExtra("snum", "202542");
+                        //            intent2.putExtra("idnum", "131127200203133412");TestStackAdapter.context.startActivity(intent2);
+                    }catch (Exception e)
+                    {
+                        System.out.println(e);
+                    }
+                }
+            });
         }
 
     }
@@ -155,6 +195,7 @@ public class TestStackAdapter extends StackAdapter<String> {
         View mContainerContent;
         TextView mTextTitle;
         LinearLayout buttonDelete;
+        LinearLayout buttonDetail;
 
         public BankCard(View view) {
             super(view);
@@ -162,6 +203,7 @@ public class TestStackAdapter extends StackAdapter<String> {
             mContainerContent = view.findViewById(R.id.container_list_content);
             mTextTitle = (TextView) view.findViewById(R.id.text_list_card_title);
             buttonDelete = view.findViewById(R.id.delete);
+            buttonDetail=view.findViewById(R.id.detail);
         }
 
         @Override
@@ -187,7 +229,24 @@ public class TestStackAdapter extends StackAdapter<String> {
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     showNormalDialog(v, data);
+                }
+            });
+            buttonDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    System.out.println("银行卡position："+position);
+                    try {
+                        Intent intent2 = new Intent(TestStackAdapter.context, Activity_bankCardDetail.class);
+                        intent2.putExtra("number", AndroidExpandingViewLibrary.card_banks[position-AndroidExpandingViewLibrary.card_ids.length].getNumber());
+                        TestStackAdapter.context.startActivity(intent2);
+                        //            intent2.putExtra("snum", "202542");
+                        //            intent2.putExtra("idnum", "131127200203133412");TestStackAdapter.context.startActivity(intent2);
+                    }catch (Exception e)
+                    {
+                        System.out.println(e);
+                    }
                 }
             });
 

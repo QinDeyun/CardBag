@@ -29,9 +29,9 @@ import kotlin.jvm.functions.Function1;
 
 public class AndroidExpandingViewLibrary extends AppCompatActivity implements CardStackView.ItemExpendListener {
 
-    private Card_ID[] card_ids;
-    private Card_bank[] card_banks;
-    private Card_student[] card_students;
+    public static Card_ID[] card_ids;
+    public static Card_bank[] card_banks;
+    public static Card_student[] card_students;
     public static String[] TEST_DATAS = new String[]{
             "身份证0",
             "银行卡1",
@@ -190,19 +190,19 @@ public class AndroidExpandingViewLibrary extends AppCompatActivity implements Ca
         int n=0;
         for (int i = 0; i < card_ids.length; i++) {
             System.out.println(card_ids[i].toString());
-            list.add("身份证"+i);
+            list.add("身份证");
             n++;
 
         }
         for (int i = 0; i < card_banks.length; i++) {
             System.out.println(card_banks[i].toString());
-            list.add("银行卡"+i);
+            list.add("银行卡");
             n++;
 
         }
         for (int i = 0; i < card_students.length; i++) {
             System.out.println(card_students[i].toString());
-            list.add("校园卡"+i);
+            list.add("校园卡");
             n++;
 
         }

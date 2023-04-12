@@ -23,11 +23,12 @@ import com.loopeer.cardstack.CardStackView;
 import com.loopeer.cardstack.StackAdapter;
 
 public class TestStackAdapter extends StackAdapter<String> {
-      public static Context context;
+    public static Context context;
     public static AppCompatActivity appCompatActivity;
-    public TestStackAdapter(Context context,AppCompatActivity appCompatActivity) {
+
+    public TestStackAdapter(Context context, AppCompatActivity appCompatActivity) {
         super(context);
-        this.context=context;
+        this.context = context;
     }
 
     @Override
@@ -79,6 +80,7 @@ public class TestStackAdapter extends StackAdapter<String> {
         TextView mTextTitle;
         LinearLayout buttonDelete;
         LinearLayout buttonDetail;
+        LinearLayout buttonPhoto;
 
 
         public IdCard(View view) {
@@ -87,7 +89,8 @@ public class TestStackAdapter extends StackAdapter<String> {
             mContainerContent = view.findViewById(R.id.container_list_content);
             mTextTitle = (TextView) view.findViewById(R.id.text_list_card_title);
             buttonDelete = view.findViewById(R.id.delete);
-            buttonDetail=view.findViewById(R.id.detail);
+            buttonDetail = view.findViewById(R.id.detail);
+            buttonPhoto = view.findViewById(R.id.card_photo);
         }
 
         @Override
@@ -110,11 +113,13 @@ public class TestStackAdapter extends StackAdapter<String> {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
 //            mTextTitle.setText(data+"\n"+AndroidExpandingViewLibrary.card_ids[position].getIdnum().substring(0,14)+"****");
-            int n=position;
-            mTextTitle.setText(data+""+(n+1));
+            int n = position;
+            mTextTitle.setText(data + "" + (n + 1));
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {showNormalDialog(v, data,position);}
+                public void onClick(View v) {
+                    showNormalDialog(v, data, position);
+                }
             });
             buttonDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -125,12 +130,27 @@ public class TestStackAdapter extends StackAdapter<String> {
                         Intent intent2 = new Intent(TestStackAdapter.context, Activity_IDCardDetail.class);
                         intent2.putExtra("idnum", AndroidExpandingViewLibrary.card_ids[position].getIdnum());
                         TestStackAdapter.context.startActivity(intent2);
-    //            intent2.putExtra("snum", "202542");
-    //            intent2.putExtra("idnum", "131127200203133412");TestStackAdapter.context.startActivity(intent2);
-                    }catch (Exception e)
-            {
-                System.out.println(e);
-            }
+                        //            intent2.putExtra("snum", "202542");
+                        //            intent2.putExtra("idnum", "131127200203133412");TestStackAdapter.context.startActivity(intent2);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }
+            });
+            buttonPhoto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    System.out.println("卡证图片");
+                    System.out.println(position);
+                    try {
+                        Intent intent2 = new Intent(TestStackAdapter.context, Activity_IDCardDetail.class);
+                        intent2.putExtra("idnum", AndroidExpandingViewLibrary.card_ids[position].getIdnum());
+                        TestStackAdapter.context.startActivity(intent2);
+                        //            intent2.putExtra("snum", "202542");
+                        //            intent2.putExtra("idnum", "131127200203133412");TestStackAdapter.context.startActivity(intent2);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
                 }
             });
         }
@@ -143,6 +163,7 @@ public class TestStackAdapter extends StackAdapter<String> {
         View mContainerContent;
         LinearLayout buttonDelete;
         LinearLayout buttonDetail;
+        LinearLayout buttonPhoto;
 
 
         public StuCard(View view) {
@@ -151,7 +172,8 @@ public class TestStackAdapter extends StackAdapter<String> {
             mContainerContent = view.findViewById(R.id.container_list_content);
             mTextTitle = (TextView) view.findViewById(R.id.text_list_card_title);
             buttonDelete = view.findViewById(R.id.delete);
-            buttonDetail=view.findViewById(R.id.detail);
+            buttonDetail = view.findViewById(R.id.detail);
+            buttonPhoto = view.findViewById(R.id.card_photo);
         }
 
         @Override
@@ -173,26 +195,40 @@ public class TestStackAdapter extends StackAdapter<String> {
         public void onBind(String data, int position) {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
-            int n=position-AndroidExpandingViewLibrary.card_ids.length-AndroidExpandingViewLibrary.card_banks.length;
-            mTextTitle.setText(data+""+ ""+(n+1));
+            int n = position - AndroidExpandingViewLibrary.card_ids.length - AndroidExpandingViewLibrary.card_banks.length;
+            mTextTitle.setText(data + "" + "" + (n + 1));
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showNormalDialog(v, data,position-AndroidExpandingViewLibrary.card_ids.length-AndroidExpandingViewLibrary.card_banks.length);
+                    showNormalDialog(v, data, position - AndroidExpandingViewLibrary.card_ids.length - AndroidExpandingViewLibrary.card_banks.length);
                 }
             });
             buttonDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    System.out.println("校园卡position:"+(position-AndroidExpandingViewLibrary.card_ids.length-AndroidExpandingViewLibrary.card_banks.length));
+                    System.out.println("校园卡position:" + (position - AndroidExpandingViewLibrary.card_ids.length - AndroidExpandingViewLibrary.card_banks.length));
                     try {
                         Intent intent2 = new Intent(TestStackAdapter.context, Activity_studentCardDetail.class);
-                        intent2.putExtra("snum", AndroidExpandingViewLibrary.card_students[position-AndroidExpandingViewLibrary.card_ids.length-AndroidExpandingViewLibrary.card_banks.length].getSnum());
+                        intent2.putExtra("snum", AndroidExpandingViewLibrary.card_students[position - AndroidExpandingViewLibrary.card_ids.length - AndroidExpandingViewLibrary.card_banks.length].getSnum());
                         TestStackAdapter.context.startActivity(intent2);
                         //            intent2.putExtra("snum", "202542");
                         //            intent2.putExtra("idnum", "131127200203133412");TestStackAdapter.context.startActivity(intent2);
-                    }catch (Exception e)
-                    {
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }
+            });
+            buttonPhoto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    System.out.println("校园卡position:" + (position - AndroidExpandingViewLibrary.card_ids.length - AndroidExpandingViewLibrary.card_banks.length));
+                    try {
+                        Intent intent2 = new Intent(TestStackAdapter.context, Activity_studentCardDetail.class);
+                        intent2.putExtra("snum", AndroidExpandingViewLibrary.card_students[position - AndroidExpandingViewLibrary.card_ids.length - AndroidExpandingViewLibrary.card_banks.length].getSnum());
+                        TestStackAdapter.context.startActivity(intent2);
+                        //            intent2.putExtra("snum", "202542");
+                        //            intent2.putExtra("idnum", "131127200203133412");TestStackAdapter.context.startActivity(intent2);
+                    } catch (Exception e) {
                         System.out.println(e);
                     }
                 }
@@ -207,6 +243,8 @@ public class TestStackAdapter extends StackAdapter<String> {
         TextView mTextTitle;
         LinearLayout buttonDelete;
         LinearLayout buttonDetail;
+        LinearLayout buttonPhoto;
+
 
         public BankCard(View view) {
             super(view);
@@ -214,7 +252,9 @@ public class TestStackAdapter extends StackAdapter<String> {
             mContainerContent = view.findViewById(R.id.container_list_content);
             mTextTitle = (TextView) view.findViewById(R.id.text_list_card_title);
             buttonDelete = view.findViewById(R.id.delete);
-            buttonDetail=view.findViewById(R.id.detail);
+            buttonDetail = view.findViewById(R.id.detail);
+            buttonPhoto = view.findViewById(R.id.card_photo);
+
         }
 
         @Override
@@ -236,27 +276,41 @@ public class TestStackAdapter extends StackAdapter<String> {
         public void onBind(String data, int position) {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
-            int n=position-AndroidExpandingViewLibrary.card_ids.length;
-            mTextTitle.setText(data+""+(n+1));
+            int n = position - AndroidExpandingViewLibrary.card_ids.length;
+            mTextTitle.setText(data + "" + (n + 1));
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    showNormalDialog(v, data,position-AndroidExpandingViewLibrary.card_ids.length);
+                    showNormalDialog(v, data, position - AndroidExpandingViewLibrary.card_ids.length);
                 }
             });
             buttonDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    System.out.println("银行卡position："+position);
+                    System.out.println("银行卡position：" + position);
                     try {
                         Intent intent2 = new Intent(TestStackAdapter.context, Activity_bankCardDetail.class);
-                        intent2.putExtra("number", AndroidExpandingViewLibrary.card_banks[position-AndroidExpandingViewLibrary.card_ids.length].getNumber());
+                        intent2.putExtra("number", AndroidExpandingViewLibrary.card_banks[position - AndroidExpandingViewLibrary.card_ids.length].getNumber());
                         TestStackAdapter.context.startActivity(intent2);
                         //            intent2.putExtra("snum", "202542");
                         //            intent2.putExtra("idnum", "131127200203133412");TestStackAdapter.context.startActivity(intent2);
-                    }catch (Exception e)
-                    {
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }
+            });
+            buttonPhoto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    System.out.println("银行卡position：" + position);
+                    try {
+                        Intent intent2 = new Intent(TestStackAdapter.context, Activity_bankCardDetail.class);
+                        intent2.putExtra("number", AndroidExpandingViewLibrary.card_banks[position - AndroidExpandingViewLibrary.card_ids.length].getNumber());
+                        TestStackAdapter.context.startActivity(intent2);
+                        //            intent2.putExtra("snum", "202542");
+                        //            intent2.putExtra("idnum", "131127200203133412");TestStackAdapter.context.startActivity(intent2);
+                    } catch (Exception e) {
                         System.out.println(e);
                     }
                 }
@@ -272,7 +326,7 @@ public class TestStackAdapter extends StackAdapter<String> {
 
     }
 
-    private static void showNormalDialog(View v, String data,int n) {
+    private static void showNormalDialog(View v, String data, int n) {
         /* @setIcon 设置对话框图标
          * @setTitle 设置对话框标题
          * @setMessage 设置对话框消息提示
@@ -301,7 +355,7 @@ public class TestStackAdapter extends StackAdapter<String> {
                             Toast.makeText(TestStackAdapter.context, "删除成功", Toast.LENGTH_SHORT).show();
                             Intent intent3 = new Intent(TestStackAdapter.context, AndroidExpandingViewLibrary.class);
                             TestStackAdapter.context.startActivity(intent3);
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             System.out.println(e);
                         }
                     }
@@ -311,7 +365,6 @@ public class TestStackAdapter extends StackAdapter<String> {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //...To-do
-
 
 
                     }

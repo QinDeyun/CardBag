@@ -81,7 +81,7 @@
                 android:textSize="16sp"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:layout_marginLeft="18dp">
+                android:layout_marginLeft="20dp">
 
             </TextView>
         </LinearLayout>

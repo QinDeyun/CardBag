@@ -1,68 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- 姓名 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="姓名" />
+        android:text="姓名"
+        android:textSize="18sp"
+        android:textColor="#000000"/>
 
     <EditText
+        android:id="@+id/sname"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:inputType="text"
-        android:id="@+id/sname"
-        android:hint="请输入姓名" />
+        android:hint="请输入姓名"
+        android:textSize="18sp"
+        android:textColor="#000000"/>
 
-    <!-- 学号 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="学号" />
+        android:text="学号"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:paddingTop="16dp"/>
 
     <EditText
         android:id="@+id/snum"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:inputType="text"
-        android:hint="请输入学号" />
+        android:hint="请输入学号"
+        android:textSize="18sp"
+        android:textColor="#000000"/>
 
-    <!-- 班级 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="班级" />
+        android:text="班级"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:paddingTop="16dp"/>
 
     <EditText
         android:id="@+id/scalss"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:inputType="text"
-        android:hint="请输入班级" />
+        android:hint="请输入班级"
+        android:textSize="18sp"
+        android:textColor="#000000"/>
 
-    <!-- 学院 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="学院" />
+        android:text="学院"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:paddingTop="16dp"/>
 
     <EditText
         android:id="@+id/scollege"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:inputType="text"
-        android:hint="请输入学院" />
+        android:hint="请输入学院"
+        android:textSize="18sp"
+        android:textColor="#000000"/>
 
-
-
-    <!-- 修改按钮 -->
     <Button
         android:id="@+id/buttonEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="修改" />
+        android:text="修改"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:background="#6200EE"
+        android:padding="12dp"
+        android:layout_marginTop="32dp"/>
 
 </LinearLayout>

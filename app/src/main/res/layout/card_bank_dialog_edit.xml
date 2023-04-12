@@ -2,67 +2,89 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <!-- 银行号码 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="卡号" />
+        android:text="卡号"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <EditText
+        android:id="@+id/cardNumber"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:inputType="number"
-        android:id="@+id/cardNumber"
-        android:hint="请输入卡号" />
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
     <!-- 公司 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="公司" />
+        android:layout_marginTop="16dp"
+        android:text="公司"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/editTextIssure"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:inputType="text"
-        android:hint="请输入公司" />
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
     <!-- 组织 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="组织" />
+        android:layout_marginTop="16dp"
+        android:text="组织"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/editTextOrgnization"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:inputType="text"
-        android:hint="请输入组织" />
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
     <!-- 卡号 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="卡类型" />
+        android:layout_marginTop="16dp"
+        android:text="卡类型"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/editTextType"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:inputType="text"
-        android:hint="请输入卡类型" />
-
-
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
     <!-- 修改按钮 -->
     <Button
         android:id="@+id/buttonEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="修改" />
+        android:layout_marginTop="32dp"
+
+        android:text="修改"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
 </LinearLayout>

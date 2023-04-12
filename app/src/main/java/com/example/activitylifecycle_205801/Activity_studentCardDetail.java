@@ -44,6 +44,8 @@ public class Activity_studentCardDetail extends AppCompatActivity {
         findViewById(R.id.photo).setOnClickListener(this.onClickListener);
     }
 
+
+
     void init(){
         Intent intent=getIntent();
         String snum=intent.getStringExtra("snum");

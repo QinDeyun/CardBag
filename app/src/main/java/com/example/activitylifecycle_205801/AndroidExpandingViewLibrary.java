@@ -54,13 +54,14 @@ public class AndroidExpandingViewLibrary extends AppCompatActivity implements Ca
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_expanding_view_library);
         this.init();
-
+//        Card_ID.delCard(new MyDatabaseHelper(this).getWritableDatabase(),"card_id",card_ids[0]);
 //        try {
 //            // 创建Intent对象，指定要启动的Activity类
-//            Intent intent2 = new Intent(AndroidExpandingViewLibrary.this, Activity_studentCardDetail.class);
+//            Intent intent2 = new Intent(AndroidExpandingViewLibrary.this, Activity_bankCardDetail.class);
 //            // 添加数据到Intent对象中，key为"message"，value为"Hello, World!"
-////            intent2.putExtra("number", "6228480028915057377");
-//            intent2.putExtra("snum", "202542");
+//            intent2.putExtra("number", "6228480028915057377");
+////            intent2.putExtra("snum", "202542");
+////            intent2.putExtra("idnum", "131127200203133412");
 //            // 启动Activity B
 //            startActivity(intent2);
 //        }catch (Exception e)
@@ -147,6 +148,12 @@ public class AndroidExpandingViewLibrary extends AppCompatActivity implements Ca
 
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        this.init();
+    }
+
     //查询所有卡片信息
     private void findAllCards() {
         try {
@@ -201,8 +208,6 @@ public class AndroidExpandingViewLibrary extends AppCompatActivity implements Ca
         }
         System.out.println(list);
         AndroidExpandingViewLibrary.TEST_DATAS=  list.toArray(new String[n]);
-
-
 
     }
 

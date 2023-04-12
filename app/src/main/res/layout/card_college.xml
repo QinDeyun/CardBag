@@ -51,6 +51,7 @@
                     android:textColor="#ffffff"
                     android:gravity="center_vertical"
                     android:textSize="22sp"
+                    android:id="@+id/snum"
                     android:text="202542"/>
             </LinearLayout>
 

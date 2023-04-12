@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ActivityLifeCycle_205801">
         <activity
+            android:name=".Activity_studentCardDetail"
+            android:exported="false" />
+        <activity
             android:name=".Activity_bankCardDetail"
             android:exported="false" />
         <activity

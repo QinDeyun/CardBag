@@ -22,7 +22,8 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/ic_bank_card" />
+                android:background="@drawable/ic_bank_card"
+                android:layout_marginTop="8dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -45,15 +46,18 @@
                     android:text="储蓄卡"
                     android:id="@+id/Type"
                     android:textColor="#ffffff"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:layout_marginLeft="3dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="#ffffff"
                     android:gravity="center_vertical"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:id="@+id/cardNumber"
-                    android:text="**** **** **** 1234"/>
+                    android:text="**** **** **** 1234"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="30dp"/>
             </LinearLayout>
 
 <!--            <Button-->

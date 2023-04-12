@@ -394,7 +394,7 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
          */
         final AlertDialog.Builder normalDialog =
                 new AlertDialog.Builder(IDCardRecognitionActivity.this);
-        normalDialog.setIcon(R.drawable.ic_delete);
+        normalDialog.setIcon(R.drawable.ic_warning);
         normalDialog.setTitle("该身份证已经存在");
         normalDialog.setMessage("是否要更新？");
         normalDialog.setPositiveButton("更新",

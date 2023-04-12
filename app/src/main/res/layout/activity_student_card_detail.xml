@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center">
 
         <LinearLayout
@@ -55,6 +55,35 @@
 
 
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="更改信息"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginLeft="9dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="查看证件照片"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginLeft="18dp">
+
+            </TextView>
         </LinearLayout>
 
 

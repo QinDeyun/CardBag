@@ -10,7 +10,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        app:cardBackgroundColor="#03333C"
+        app:cardBackgroundColor="#6F83EF"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:contentPadding="16dp">
@@ -23,7 +23,8 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/ic_stu_card" />
+                android:background="@drawable/ic_stu_card"
+                android:layout_marginTop="6dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,7 +36,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="学生证"
+                    android:text="校园卡"
                     android:textColor="#ffffff"
                     android:textSize="18sp" />
 
@@ -44,7 +45,8 @@
                     android:layout_height="wrap_content"
                     android:text="河北工业大学"
                     android:textColor="#ffffff"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:layout_marginLeft="3dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -52,7 +54,8 @@
                     android:gravity="center_vertical"
                     android:textSize="22sp"
                     android:id="@+id/snum"
-                    android:text="202542"/>
+                    android:text="202542"
+                    android:layout_marginLeft="3dp"/>
             </LinearLayout>
 
             <!--            <ImageView-->

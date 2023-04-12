@@ -2,13 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <!-- 身份证号码 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="身份证号码" />
+        android:text="身份证号码"
+        android:layout_marginTop="5dp"/>
 
     <EditText
         android:id="@+id/editTextIdCardNumber"
@@ -111,8 +113,10 @@
     <!-- 修改按钮 -->
     <Button
         android:id="@+id/buttonEdit"
-        android:layout_width="match_parent"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:text="修改" />
+        android:text="修改"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

@@ -80,8 +80,6 @@
         android:text="修改"
         android:textSize="18sp"
         android:textColor="#FFFFFF"
-        android:background="#6200EE"
-        android:padding="12dp"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="24dp"/>
 
 </LinearLayout>

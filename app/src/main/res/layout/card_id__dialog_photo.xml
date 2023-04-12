@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,9 +12,9 @@
         android:gravity="center">
 
         <ImageView
+            android:id="@+id/image"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/image">
+            android:layout_height="wrap_content">
 
         </ImageView>
     </LinearLayout>
@@ -25,51 +24,56 @@
         android:layout_height="0dp"
         android:layout_weight="5"
         android:orientation="vertical"
-        >
+        android:padding="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="水印"/>
+            android:text="水印" />
+
         <EditText
+            android:id="@+id/watermark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入水印"
-            android:id="@+id/watermark"
-            ></EditText>
+            android:hint="请输入水印">
+
+        </EditText>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
 
             <Button
-                android:layout_width="wrap_content"
+                android:id="@+id/add_watermark"
+                android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:text="添加水印"
-                android:id="@+id/add_watermark">
+                android:text="添加水印">
 
             </Button>
+
             <Button
-                android:layout_width="wrap_content"
+                android:id="@+id/del_watermark"
+                android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:text="取消水印"
-                android:id="@+id/del_watermark">
+                android:layout_marginLeft="30dp">
 
             </Button>
-
-
 
 
         </LinearLayout>
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/out"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="导出"
-            android:id="@+id/out">
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
 
         </Button>
-
 
 
     </LinearLayout>

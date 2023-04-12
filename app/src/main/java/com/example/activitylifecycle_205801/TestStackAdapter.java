@@ -12,6 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.activitylifecycle_205801.entity.Card_ID;
+import com.example.activitylifecycle_205801.entity.Card_bank;
+import com.example.activitylifecycle_205801.entity.Card_student;
+import com.example.activitylifecycle_205801.util.MyDatabaseHelper;
 import com.loopeer.cardstack.CardStackView;
 import com.loopeer.cardstack.StackAdapter;
 
@@ -101,10 +105,10 @@ public class TestStackAdapter extends StackAdapter<String> {
         public void onBind(String data, int position) {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
-            mTextTitle.setText(data);
+            mTextTitle.setText(data+""+position);
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {showNormalDialog(v, data);}
+                public void onClick(View v) {showNormalDialog(v, data,position);}
             });
             buttonDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -163,17 +167,17 @@ public class TestStackAdapter extends StackAdapter<String> {
         public void onBind(String data, int position) {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
-            mTextTitle.setText(data);
+            mTextTitle.setText(data+""+(position-AndroidExpandingViewLibrary.card_ids.length-AndroidExpandingViewLibrary.card_banks.length));
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showNormalDialog(v, data);
+                    showNormalDialog(v, data,position-AndroidExpandingViewLibrary.card_ids.length-AndroidExpandingViewLibrary.card_banks.length);
                 }
             });
             buttonDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    System.out.println("校园卡position:"+position);
+                    System.out.println("校园卡position:"+(position-AndroidExpandingViewLibrary.card_ids.length-AndroidExpandingViewLibrary.card_banks.length));
                     try {
                         Intent intent2 = new Intent(TestStackAdapter.context, Activity_studentCardDetail.class);
                         intent2.putExtra("snum", AndroidExpandingViewLibrary.card_students[position-AndroidExpandingViewLibrary.card_ids.length-AndroidExpandingViewLibrary.card_banks.length].getSnum());
@@ -225,12 +229,12 @@ public class TestStackAdapter extends StackAdapter<String> {
         public void onBind(String data, int position) {
             //mLayout.getBackground().setColorFilter(ContextCompat.getColor(getContext(), data), PorterDuff.Mode.SRC_IN);
             //mTextTitle.setText(String.valueOf(position));
-            mTextTitle.setText(data);
+            mTextTitle.setText(data+""+(position-AndroidExpandingViewLibrary.card_ids.length));
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    showNormalDialog(v, data);
+                    showNormalDialog(v, data,position-AndroidExpandingViewLibrary.card_ids.length);
                 }
             });
             buttonDetail.setOnClickListener(new View.OnClickListener() {
@@ -260,7 +264,7 @@ public class TestStackAdapter extends StackAdapter<String> {
 
     }
 
-    private static void showNormalDialog(View v, String data) {
+    private static void showNormalDialog(View v, String data,int n) {
         /* @setIcon 设置对话框图标
          * @setTitle 设置对话框标题
          * @setMessage 设置对话框消息提示
@@ -275,7 +279,19 @@ public class TestStackAdapter extends StackAdapter<String> {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //...To-do
+                        try {
+
+                            //...To-do
+                            if (data.equals("身份证")) {
+                                Card_ID.delCard(new MyDatabaseHelper(TestStackAdapter.context).getWritableDatabase(), "card_id", AndroidExpandingViewLibrary.card_ids[n]);
+                            } else if (data.equals("银行卡")) {
+                                Card_bank.delCard(new MyDatabaseHelper(TestStackAdapter.context).getWritableDatabase(), "card_bank", AndroidExpandingViewLibrary.card_banks[n]);
+                            } else if (data.equals("校园卡")) {
+                                Card_student.delCard(new MyDatabaseHelper(TestStackAdapter.context).getWritableDatabase(), "card_student", AndroidExpandingViewLibrary.card_students[n]);
+                            }
+                        }catch (Exception e){
+                            System.out.println(e);
+                        }
                     }
                 });
         normalDialog.setNegativeButton("关闭",
@@ -283,6 +299,8 @@ public class TestStackAdapter extends StackAdapter<String> {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //...To-do
+
+
                     }
                 });
         // 显示

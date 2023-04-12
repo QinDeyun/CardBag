@@ -5,6 +5,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.activitylifecycle_205801.util.Conduct_bitmap;
+
 import java.util.ArrayList;
 
 public class Card_ID {
@@ -217,6 +219,13 @@ public class Card_ID {
         String whereClause = "idnum=?";
         String[] whereArgs = {card.getIdnum()};
         db.update(tableName, values, whereClause, whereArgs);
+    }
+    //删除卡片信息，和图片
+    public static void delCard(SQLiteDatabase db, String tableName, Card_ID card){
+        deleteFromDatabase(db,tableName,card.idnum);
+        Conduct_bitmap.deleteFileFromInternalStorage(card.firsturl);
+        Conduct_bitmap.deleteFileFromInternalStorage(card.secondurl);
+
     }
 
 

@@ -5,6 +5,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.activitylifecycle_205801.util.Conduct_bitmap;
+
 public class Card_student {
     String sname;
     String snum;
@@ -137,5 +139,13 @@ public class Card_student {
         values.put("fronturl", card_student.getFronturl());
 
         db.update(tableName, values, "snum=?", new String[]{card_student.getSnum()});
+    }
+
+    ////删除卡片信息，和图片
+    public static void delCard(SQLiteDatabase db, String tableName, Card_student card){
+        deleteFromDatabase(db,tableName,card.snum);
+        Conduct_bitmap.deleteFileFromInternalStorage(card.fronturl);
+
+
     }
 }

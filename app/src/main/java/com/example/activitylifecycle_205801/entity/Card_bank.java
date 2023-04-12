@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.activitylifecycle_205801.util.Conduct_bitmap;
+
 public class Card_bank {
         String number;
         String issuer;
@@ -146,6 +148,16 @@ public class Card_bank {
         String[] selectionArgs = { card_bank.getNumber() };
 
         db.update(tableName, values, selection, selectionArgs);
+    }
+
+
+
+    //删除卡片信息，和图片
+    public static void delCard(SQLiteDatabase db, String tableName, Card_bank card){
+        deleteFromDatabase(db,tableName,card.number);
+        Conduct_bitmap.deleteFileFromInternalStorage(card.fronturl);
+
+
     }
 
 }

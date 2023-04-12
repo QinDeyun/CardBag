@@ -184,6 +184,11 @@ public class Conduct_bitmap {
         pdfDocument.close();
     }
 
+    public static boolean deleteFileFromInternalStorage(String filePath) {
+        File file = new File(filePath);
+        return file.delete();
+    }
+
 
 
 

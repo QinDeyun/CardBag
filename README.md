@@ -43,18 +43,19 @@
 ![image](https://user-images.githubusercontent.com/79461685/231776227-034c66d7-c007-46bb-9e44-ac79dfbb05d1.png)
 
 ## 🤝Used dependencies
-  
+```
   com.loopeer.library:cardstack:1.0.2
-  
-  
-  
+  https://github.com/loopeer/CardStackView
+```
+```
   com.huawei.hms:ml-computer-card-icr-cn:3.7.0.303
-  
   com.huawei.hms:ml-computer-card-bcr:3.7.0.302
-  
   com.huawei.hms:ml-computer-vision-ocr:3.8.0.303
-  
+  https://github.com/HMS-MLKit/HUAWEI-HMS-MLKit-Sample
+```
+```
   com.github.imangazalievm:circlemenu:3.0.0
-  
+  https://github.com/ImangazalievM/CircleMenu
+```
   
 

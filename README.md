@@ -4,7 +4,7 @@
 
 ### ⭕The current version can recognize and manage three types of cards: campus card, bank card and ID card
 
-![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github1.gif)
+![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github1.gif#pic_center )
 
 ### ⭕By calling the camera to automatically identify the card information, avoid the shortcomings of manual input, such as error-prone and tedious
 

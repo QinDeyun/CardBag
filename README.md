@@ -1,31 +1,35 @@
-# 卡包————高效证件信息管理平台
+# CardBag — An efficient card management platform
 
-## 基本功能
+## Basic function
 
-当前版本可以识别管理三种类型的卡片：校园卡、银行卡、身份证
+The current version can recognize and manage three types of cards: campus card, bank card and ID card
 
 ![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github1.gif)
 
-通过调用摄像头来自动识别卡片信息，避免手动输入的易错、繁琐等缺点
+By calling the camera to automatically identify the card information, avoid the shortcomings of manual input, such as error-prone and tedious
 
 ![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github3.gif)
 
-在首页显示用户的所有卡片，供用户进行选择
+All the cards of the user are displayed on the home page for the user to choose
 
 ![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github5.gif)
 
-点击卡片能够显示详细的卡片信息以及卡片图片等功能
+Click the card to display detailed card information and card pictures
 
 ![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github4.gif)
 
 
-## 后续版本优化（饼）
-改进校园卡识别效果：
+## Subsequent version optimization
+Improve campus card identification effect:
 
-①采用云测识别，云侧识别与端侧识别相比，准确率较高
+  ①Compared with the end - side recognition, the accuracy of cloud - side recognition is higher
 
-②提高两个组件的耦合效果
+  ②Improve the coupling effect of the two components
 
-引入NFC模块
+The NFC module is introduced
 
-在未来引入NFC读取与模拟功能（HCE），增强平台的实用性
+  In the future, NFC read and simulation function (HCE) will be introduced to enhance the practicability of the platform
+  
+Introduce encryption technology
+
+  Encrypt personal information and card photos and store them in the database

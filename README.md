@@ -2,7 +2,7 @@
 
 ## Basic function
 
-### The current version can recognize and manage three types of cards: campus card, bank card and ID card
+### 🤝The current version can recognize and manage three types of cards: campus card, bank card and ID card
 
 ![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github1.gif)
 

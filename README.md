@@ -8,7 +8,7 @@
 
 ·All the cards of the user are displayed on the home page for the user to choose
 
-![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github1.gif=80%)![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github3.gif)![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github5.gif)
+![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github1.gif = 300x600)![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github3.gif = 300x600)![image](https://github.com/Cod1ngR1der/ActivityLifeCycle_205801/blob/master/app/src/main/res/drawable/github5.gif = 300x600)
 
 
 Click the card to display detailed card information and card pictures

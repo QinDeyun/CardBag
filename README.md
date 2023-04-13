@@ -21,11 +21,12 @@
 
 
 ## 🤝Subsequent version optimization
+
 ### ⭕Improve campus card identification effect:
 
-  ·Compared with the end - side recognition, the accuracy of cloud - side recognition is higher
+  ⚙Compared with the end - side recognition, the accuracy of cloud - side recognition is higher
 
-  ·Improve the coupling effect of the two components
+  ⚙Improve the coupling effect of the two components
 
 ### ⭕The NFC module is introduced
 
@@ -34,3 +35,8 @@
 ### ⭕Introduce encryption technology
 
   Encrypt personal information and card photos and store them in the database
+
+## 💥Class functionality
+
+![image](https://user-images.githubusercontent.com/79461685/231776227-034c66d7-c007-46bb-9e44-ac79dfbb05d1.png)
+

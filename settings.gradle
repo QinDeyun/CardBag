@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         maven { url 'https://developer.huawei.com/repo/' }
     }
 }
-rootProject.name = "ActivityLifeCycle_205801"
+rootProject.name = "CardBag"
 include ':app'

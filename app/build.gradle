@@ -10,7 +10,7 @@ android {
         configurations.all {
             resolutionStrategy { force 'androidx.core:core-ktx:1.7.0' }
         }
-        applicationId "com.example.activitylifecycle_205801"
+        applicationId "com.example.CardBag"
         minSdk 21
         targetSdk 32
         versionCode 1

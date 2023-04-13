@@ -41,22 +41,38 @@
         <entry key="..\:/Users/86152/Desktop/Android/Exp/app/src/main/res/layout/expanding_sub_item.xml" value="0.3609375" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/button.xml" value="0.2564814814814815" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/button_circle_background.xml" value="0.2564814814814815" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/ic_bank_card.xml" value="0.265625" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/ic_card_delete.xml" value="0.1609375" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/ic_card_detail_information.xml" value="0.1609375" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/ic_card_photo.xml" value="0.1609375" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/ic_delete.xml" value="0.265625" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/ic_stu_card.xml" value="0.265625" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/ic_warning.xml" value="0.265625" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/icon_card_package.xml" value="0.3723076923076923" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/round.xml" value="0.1609375" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/drawable/shape_rectangle_with_radius.xml" value="0.1" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/activity_android_expanding_view_library.xml" value="0.176" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/activity_bank_card_detail.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/activity_bank_card_recognition.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/activity_idcard_detail.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/activity_idcard_recognition.xml" value="0.264" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/activity_main.xml" value="0.14479166666666668" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/activity_stu_card_recognition.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/activity_student_card_detail.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/card_bank.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/card_bank_dialog_edit.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/card_college.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/card_id.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/card_id__dialog_edit.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/card_id__dialog_photo.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/card_student_dialog_edit.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/card_student_dialog_photo.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/expanding_item.xml" value="0.14479166666666668" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/expanding_layout.xml" value="0.14479166666666668" />
         <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/linear_list_card_item.xml" value="0.2" />
-        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/list_card_item.xml" value="0.14479166666666668" />
-        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/list_card_item_larger_header.xml" value="0.14479166666666668" />
-        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/list_card_item_with_no_header.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/list_card_item.xml" value="0.33" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/list_card_item_larger_header.xml" value="0.21" />
+        <entry key="..\:/Users/86152/Desktop/CardPackage/app/src/main/res/layout/list_card_item_with_no_header.xml" value="0.25" />
       </map>
     </option>
   </component>

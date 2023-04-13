@@ -48,7 +48,7 @@
                 android:textColor="@color/secondary_text_color"
                 android:textSize="14sp" />
 
-            <com.example.activitylifecycle_205801.SwitchButton
+            <CardBag.SwitchButton
                 android:id="@+id/switch_button_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

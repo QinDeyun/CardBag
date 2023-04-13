@@ -24,9 +24,11 @@
 
 ### ⭕Improve campus card identification effect:
 
+    ```
     Compared with the end - side recognition, the accuracy of cloud - side recognition is higher
 
     Improve the coupling effect of the two components
+    ```
 
 ### ⭕The NFC module is introduced
 
@@ -43,6 +45,8 @@
 ## 🤝Used dependencies
   
   com.loopeer.library:cardstack:1.0.2
+  
+  
   
   com.huawei.hms:ml-computer-card-icr-cn:3.7.0.303
   

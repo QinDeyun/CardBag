@@ -24,7 +24,7 @@
 
 ### ⭕Improve campus card identification effect:
 
-```
+``` cpp {.line-numbers}
     Compared with the end - side recognition, the accuracy of cloud - side recognition is higher
 
     Improve the coupling effect of the two components
